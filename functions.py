@@ -175,7 +175,7 @@ def saveDataInPickleFile(dictio, pickle_file_path):
         print("pickle file successfully saved in: {}".format(pickle_file_path))
 
 
-def loadDataFromPickleFile(pickle_file_path):
+def readDataFromPickleFile(pickle_file_path):
     import pickle
 
     with open(pickle_file_path, "rb") as file:
