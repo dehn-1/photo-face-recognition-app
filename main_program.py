@@ -76,7 +76,7 @@ for img in input_imgs:
                                                                     scaleFactor, minNeighbors, detected_face_file_path)
 
     # Prédire de l'identité des personnes sur les photos, en se basant sur le Modèle estimé (trained_recognizer.yml)
-    id, loss = runPredictionOnImage(trained_recognizer_path, detected_face_file_path)
+    id, uncertitude = runPredictionOnImage(trained_recognizer_path, detected_face_file_path)
 
     # Charger le fichier "pickle"
     labels_ids_dictio = readDataFromPickleFile(pickle_file_path)
@@ -90,4 +90,4 @@ for img in input_imgs:
     # print(label)
 
     # 6. Afficher la photo entrée par le user dans une fenetre et écrire les données de prédiction sur cette dernière
-    writeDataOnImage(img_path, img_size, detected_face_coordinates, label, loss)
+    writeDataOnImage(img_path, img_size, detected_face_coordinates, label, uncertitude)
