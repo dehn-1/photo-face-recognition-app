@@ -81,7 +81,7 @@ for img in input_imgs:
     # Charger le fichier "pickle"
     labels_ids_dictio = readDataFromPickleFile(pickle_file_path)
 
-    # inverser la clé et la valeur dans le dictionnaire contenant les labels (noms des personnes) et leurs identifiants
+    # Inverser la clé et la valeur dans le dictionnaire contenant les labels (noms des personnes) et leurs identifiants
     ids_labels_dictio = reverseKeyValuePairInDictio(labels_ids_dictio)
     # print("ids_labels_dictio: ", ids_labels_dictio)
 
@@ -89,5 +89,5 @@ for img in input_imgs:
     label = getLabelFromId(id, ids_labels_dictio)
     # print(label)
 
-    # 6. Afficher la photo entrée par le user dans une fenetre et écrire les données de prédiction sur cette dernière
+    # Afficher la photo entrée par le user dans une fenetre et écrire les données de prédiction sur cette dernière
     writeDataOnImage(img_path, img_size, detected_face_coordinates, label, uncertitude)
