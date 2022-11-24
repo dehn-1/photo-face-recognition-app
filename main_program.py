@@ -53,7 +53,7 @@ input_imgs_folder_path = createFileOrFolderPath(base_path, "input_images")
 input_imgs = getFolderContent(input_imgs_folder_path)
 # print(input_imgs)
 
-detected_faces_folder_path = createFileOrFolderPath(base_path, "detected_face")
+detected_faces_folder_path = createFileOrFolderPath(base_path, "detected_faces")
 
 # Saisie des params "scaleFactor" et "minNeighbors" pour les photos entrées par le user
 # scaleFactor = 1.3
