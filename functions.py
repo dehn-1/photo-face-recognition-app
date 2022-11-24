@@ -249,12 +249,11 @@ def readFaceRecognizerTrainedData(trained_recognizer_file_path):
 def runPredictionOnImage(trained_recognizer_file_path, img_path):
     recognizer = readFaceRecognizerTrainedData(trained_recognizer_file_path)
     img = readImage(img_path)
-    id, loss = recognizer.predict(img)   # id: label's id
+    id, uncertitude = recognizer.predict(img)   # id: label's id
     print("prediction on image {} done.".format(img_path))
     # print("image label_id: ", id)
-    # print("loss : ", loss)
-    # The higher the loss value is, the less similar the 2 faces are
-    return id, loss
+    # print("uncertitude : ", uncertitude)
+    return id, uncertitude
 
 
 # reverse the key/value pair in a dictionnary:
@@ -282,7 +281,7 @@ def drawFrameOnFace(img, face_coordinates):
     cv2.rectangle(img, (x, y), (x + width, y + height), frame_color, frame_stroke)
 
 
-def writeTextOnImage(img, face_coordinates, label, loss):
+def writeTextOnImage(img, face_coordinates, label, uncertitude):
     import cv2
 
     (x, y, width, height) = extractFaceCoordinates(face_coordinates)
@@ -292,18 +291,18 @@ def writeTextOnImage(img, face_coordinates, label, loss):
     font_color_2 = (0, 0, 255)
     font_stroke = 2
     person_name = label.replace("-" or "_", " ")
-    loss_value = str("loss = {:.3f}".format(loss))
+    uncertitude_value = str("loss = {:.3f}".format(uncertitude))
 
     cv2.putText(img, person_name, (x, y-20), font, 1, font_color_1, font_stroke, cv2.LINE_AA)
-    cv2.putText(img, loss_value, (x, 620), font, 1, font_color_2, font_stroke, cv2.LINE_AA)
+    cv2.putText(img, uncertitude_value, (70, 620), font, 1, font_color_2, font_stroke, cv2.LINE_AA)
 
 
-def writeDataOnImage(img_path, img_size, face_coordinates, label, loss):
+def writeDataOnImage(img_path, img_size, face_coordinates, label, uncertitude):
 
     img_original = readImage(img_path)
     img_resized = resizeImage(img_original, img_size)
 
     drawFrameOnFace(img_resized, face_coordinates)
-    writeTextOnImage(img_resized, face_coordinates, label, loss)
+    writeTextOnImage(img_resized, face_coordinates, label, uncertitude)
 
     displayImageInWindow(label, img_resized)
