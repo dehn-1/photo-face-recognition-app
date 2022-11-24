@@ -72,7 +72,7 @@ for img in input_imgs:
     detected_face_file_path = createFileOrFolderPath(detected_faces_folder_path, detected_face_file_name)
 
     # Extraire le visage de la personne sur la photo ainsi que les coordonnées de ce dernier, en se basant sur un classifieur "Haar cascade"
-    detected_face, detected_face_coordinates = extractFaceFromImage(img_path, imgs_formats, img_size, classifier_path,
+    detected_face_coordinates = extractFaceFromImage(img_path, imgs_formats, img_size, classifier_path,
                                                                     scaleFactor, minNeighbors, detected_face_file_path)
 
     # Prédire de l'identité des personnes sur les photos, en se basant sur le Modèle estimé (trained_recognizer.yml)
