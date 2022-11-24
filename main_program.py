@@ -42,7 +42,7 @@ pickle_file_path = createFileOrFolderPath(base_path, "labels.pickle")
 # 3. Apprentissage du Modèle (training the recognizer)
 trainFaceRecognizer(X, Y, "trained_recognizer.yml")
 trained_recognizer_path = createFileOrFolderPath(base_path, "trained_recognizer.yml")
-# output: trained_recognizer.yml = c'est le Modèle estimé
+# le fichier d'output "trained_recognizer.yml" est un classifieur entrainé qui nous permettra par la suite de faire les prédictions.
 
 
 # 5. Prédiction:
