@@ -235,7 +235,7 @@ def extractFaceFromImage(img_path, imgs_formats, img_size, classifier_path, scal
                 # Save the detected face in a file
                 writeImage(detected_face_file_path, detected_face)
 
-                return detected_face, detected_face_coordinates
+                return detected_face_coordinates
     else:
         print("le format de l'image {} est incompatible!".format(img_path))
 
