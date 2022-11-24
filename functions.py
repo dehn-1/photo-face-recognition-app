@@ -17,6 +17,7 @@ def chooseImagesFormats():
     raster_imgs_formats = ["jpeg", "jpg", "png", "gif", "bmp", "webp"]
 
     while True:
+        print(raster_imgs_formats)
         decision = input("voulez vous utilisez ces formats \"Raster\" pour vos images? validez par 'o': ")
         if decision.lower() == 'o':
             print("formats enregistrés.")
