@@ -79,7 +79,7 @@ for img in input_imgs:
     id, loss = runPredictionOnImage(trained_recognizer_path, detected_face_file_path)
 
     # Charger le fichier "pickle"
-    labels_ids_dictio = loadDataFromPickleFile(pickle_file_path)
+    labels_ids_dictio = readDataFromPickleFile(pickle_file_path)
 
     # inverser la clé et la valeur dans le dictionnaire contenant les labels (noms des personnes) et leurs identifiants
     ids_labels_dictio = reverseKeyValuePairInDictio(labels_ids_dictio)
