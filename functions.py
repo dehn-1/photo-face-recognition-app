@@ -140,9 +140,9 @@ def extractFacesAndLabelsFromDataset(dataset_path, imgs_formats, img_size, class
                 # print(detected_faces)
 
                 if len(detected_faces) == 0:  # If we detect no face in the image
-                    print("we found no faces in {}".format(img_path))
+                    print("Il n'y a aucun visage sur la photo {}".format(img_path))
                 elif len(detected_faces) > 1:  # If we detect more than one face in the image
-                    print("we found more than one face in {}".format(img_path))
+                    print("Il y a plus qu'un visage sur la photo {}".format(img_path))
                 else:  # If we detect one face in the image..
 
                     # ..we extract the detected face from the picture
